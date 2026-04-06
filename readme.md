@@ -24,3 +24,11 @@ NETWORK ID     NAME       DRIVER    SCOPE
 87b2349c7d0b   internal   bridge    local
 7e934f09907c   none       null      local
 ```
+
+```bash
+PS D:\USM\Second year\ContainerizationVirtualization\containers06> docker run -d --name backend --network internal -v ./mounts/site/:/var/www/html php:8.4-fpm
+```
+
+```bash
+PS D:\USM\Second year\ContainerizationVirtualization\containers06> docker run -d --name frontend --network internal -v ./mounts/site/:/var/www/html -v ./nginx/default.conf:/etc/nginx/conf.d/default.conf -p 80:80 nginx:1.23-alpine
+```
